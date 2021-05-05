@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "base/head.html" %}
+
+<body>
+{% include "base/navigation.html" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+        <div class="col-md-4">
+            {% include "base/pages.html" %}
+        </div>
+    </div>
+</div>
+
+
+{% include "base/footer.html" %}
+
+{% include "base/scripts.html" %}
+</body>
+
+</html>

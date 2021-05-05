@@ -1,0 +1,23 @@
+{% url 'dashboard' as dashboard %}
+{% url 'article_create' as article_create %}
+{% url 'article_approval' as article_approval %}
+{% url 'articles_edited' as articles_edited %}
+<!-- Categories widget-->
+{% if user.is_authenticated %}
+    <div class="card my-4">
+        <h5 class="card-header">Pages</h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="{{ dashboard }}">Dashboard</a></li>
+                        <li><a href="{{ article_create }}">Create New Article</a></li>
+                        <li><a href="{% url 'article_update' pk=1 %}">Writer Article Detail Page(Default ArticleId: 1)</a>
+                        <li><a href="{{ article_approval }}">Article Approval Page</a></li>
+                        <li><a href="{{ articles_edited }}">Articles Edited Page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

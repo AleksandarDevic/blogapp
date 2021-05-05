@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% url 'register' as register %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 card mx-auto mt-5 mb-5">
+                <div class="card-body">
+                    <h5 class="card-title">Register</h5>
+                    <form method="POST" action="{{ register }}">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ form|crispy }}
+                        </fieldset>
+
+                        <input class="mb-3 btn btn-primary btn-block" type="submit" value="Register">
+                        <hr>
+                        <a class="mb-3 btn btn-success btn-block" href="{% url 'login' %}">Login</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

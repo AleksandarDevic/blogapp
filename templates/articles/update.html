@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="col-md-12">
+        <div class="card mx-auto mt-5 mb-5">
+            <div class="card-body">
+                <h5 class="card-title">Article with Id: {{ article.id }}</h5>
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <hr>
+                    <button type="submit" class="btn btn btn-warning btn-block">Update</button>
+                    <hr>
+                    <a class="mb-5 btn btn-primary btn-block" href="{% url 'article_create' %}">Create New Article</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
